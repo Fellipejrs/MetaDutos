@@ -1,0 +1,404 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaDutos - Sistema de Dutos e Ventilação Industrial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container" style="display: flex; align-items: center; justify-content: space-between;">
+            <!-- Logo à esquerda -->
+            <div style="display: flex; align-items: center;">
+                <img src="./imagens/logo.svg" alt="MetaDutos" style="height: 48px; margin-right: 16px;">
+            </div>
+            <!-- Menu centralizado -->
+            <ul class="nav-links"
+                style="display: flex; gap: 32px; list-style: none; margin: 0; padding: 0;">
+                <li><a onclick="showSection('home')"
+                        style="font-weight: bold; color: #0074c8; border-bottom: 2px solid #0074c8;">HOME</a>
+                </li>
+                <li><a href="#" onclick="openSobreSidebar()">SOBRE</a></li>
+                <li><a href="#">PRODUTOS</a></li>
+                <li><a href="#">SERVIÇOS</a></li>
+                <li><a onclick="showSection('contact')">CONTATO</a></li>
+            </ul>
+            <div class="social-icons" style="display: flex; gap: 16px;">
+                <img src="./imagens/icons/logo-instagram.svg">
+                <img src="./imagens/icons/logo-linkedin.svg">
+            </div>
+        </div>
+    </nav>
+
+    <div id="home" class="section active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>MetaDutos</h1>
+                <p>Soluções completas em sistemas de dutos e ventilação industrial</p>
+                <a href="#" class="cta-button" onclick="showSection('contact')">Solicite uma Cotação</a>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="container">
+                <h2 class="section-title">Nossos Projetos</h2>
+                <div id="carousel" style="position: relative; width: 100%; height: 600px; margin: 0 auto; overflow: hidden;">
+                    <div id="carousel-images" style="display: flex; transition: transform 0.6s ease;">
+                        <img src="./imagens/thiago1.jfif" alt="Sistemas de Dutos Externos" style="width: 100%; flex-shrink: 0;">
+                        <img src="./imagens/thiago5.jfif" alt="Condensadoras" style="width: 100%; flex-shrink: 0;">
+                        <img src="./imagens/thiago6.jfif" alt="Condensadoras" style="width: 100%; flex-shrink: 0;">
+                        <img src="./imagens/thiago7.jfif" alt="Condensadoras" style="width: 100%; flex-shrink: 0;">
+                    </div>
+                    <!-- Botões de navegação -->
+                    <button id="carousel-prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; z-index: 2;">&#10094;</button>
+                    <button id="carousel-next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; z-index: 2;">&#10095;</button>
+                    <!-- Indicadores -->
+                    <div id="carousel-indicators" style="position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 2;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">Nossos Serviços:</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Fabricação de Dutos</h3>
+                        <p>Desenvolvemos dutos de ar com alto padrão de qualidade, utilizando materiais resistentes e técnicas de montagem precisas. Garantimos perfeita vedação, durabilidade e desempenho ideal para sistemas de ventilação, exaustão e ar-condicionado industrial ou comercial.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Corte a Plasma</h3>
+                        <p>Realizamos cortes a plasma com tecnologia avançada, assegurando precisão milimétrica e excelente acabamento nas peças metálicas. Esse processo garante maior agilidade na produção e redução de desperdícios, atendendo projetos sob medida com máxima eficiência.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Flanges em Ferro Chato</h3>
+                        <p>Produzimos flanges em ferro chato com dimensões personalizadas, perfeitas para conexão e fixação de dutos e equipamentos. Nosso processo garante resistência, alinhamento e vedação confiável, contribuindo para a segurança e durabilidade das instalações.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Manutenção</h3>
+                        <p>Oferecemos serviços completos de manutenção preventiva e corretiva em sistemas de climatização e ventilação. Nossa equipe garante o desempenho ideal dos equipamentos, aumentando sua vida útil e reduzindo custos operacionais. Trabalhamos com agilidade, segurança e compromisso com a excelência.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <div id="about" class="section">
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Sobre a MetaDutos</h2>
+                        <p>A MetaDutos é uma empresa especializada em soluções completas para sistemas de dutos e
+                            ventilação industrial. Com anos de experiência no mercado, oferecemos serviços de
+                            instalação, manutenção e consultoria para empresas que buscam eficiência energética e
+                            qualidade do ar em seus ambientes.</p>
+
+                        <p>Nossa equipe técnica altamente qualificada utiliza equipamentos de última geração e segue
+                            rigorosamente as normas técnicas e de segurança, garantindo resultados excepcionais em cada
+                            projeto.</p>
+
+                        <p>Trabalhamos com as melhores marcas do mercado, como Carrier e outros fabricantes renomados,
+                            assegurando a durabilidade e performance dos sistemas instalados.</p>
+                    </div>
+
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Projetos Realizados</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Anos de Experiência</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Clientes Satisfeitos</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Suporte Técnico</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">Nossas Especialidades</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Ventilação Industrial</h3>
+                        <p>Sistemas completos de ventilação para indústrias, garantindo a qualidade do ar e segurança
+                            dos trabalhadores.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Controle de Temperatura</h3>
+                        <p>Soluções em climatização e controle térmico para diferentes tipos de ambientes industriais e
+                            comerciais.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Consultoria Técnica</h3>
+                        <p>Análise detalhada de necessidades e desenvolvimento de projetos customizados para cada
+                            cliente.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Eficiência Energética</h3>
+                        <p>Implementação de soluções que reduzem o consumo energético e os custos operacionais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <div id="contact" class="section">
+        <section class="contact">
+            <div class="container">
+                <div>
+                    <h2>Entre em contato</h2>
+                    <p>Solicite uma cotação ou tire suas dúvidas. Nossa equipe está pronta para atender você!</p>
+
+                    <div class="contact-info">
+                        <div class="contact-item" onclick="encaminhaWpp()">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <strong>WhatsApp</strong><br>
+                                (11) 99999-9999
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <strong>Telefone Fixo</strong><br>
+                                (11) 3333-4444
+                            </div>
+                        </div>
+
+                        <a href="https://instagram.com/metadutos" class="contact-item" target="_blank">
+                            <div class="contact-icon">📷</div>
+                            <div>
+                                <strong>Instagram</strong><br>
+                                @metadutos
+                            </div>
+                        </a>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <strong>E-mail</strong><br>
+                                contato@metadutos.com.br
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">🏢</div>
+                            <div>
+                                <strong>Localização</strong> <br>
+                                Rua: NOME DA RUA - NUMERO - SP <br>
+                                São Paulo - SP - CEP: numero do cep
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+
+    <!-- Modal Sobre -->
+    <div id="sobreSidebar" style="display:none; position:fixed; top:0; right:0; width:400px; max-width:90vw; height:100vh; background:#fff; z-index:9999; box-shadow:-4px 0 24px rgba(0,0,0,0.2); transition:right 0.3s; overflow-y:auto;">
+        <button onclick="closeSobreSidebar()" style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:24px; cursor:pointer;">&times;</button>
+        <div style="padding:48px 32px 32px 32px;">
+            <h2 style="margin-bottom:16px;">SOBRE A META DUTOS</h2>
+            <p style="color:#333; font-size:16px; line-height:1.6;">
+                Empresa especializada em soluções de ar condicionado industrial, oferecendo projetos e manutenção com alto padrão de qualidade. Atuamos com foco em eficiência energética, tecnologia de ponta e atendimento personalizado. Nosso objetivo é garantir ambientes climatizados com segurança e performance. Contamos com uma equipe técnica qualificada e comprometida com os melhores resultados. Atendemos indústrias de diversos setores, sempre buscando inovação e excelência.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: flex-start; color: #fff;">
+
+            <div style="flex: 1; align-items: center;">
+                <img src="./imagens/logo3.jfif" alt="MetaDutos" style="height: 13rem; margin-bottom: 16px;">
+            </div>
+            <div style="flex: 1;">
+                <h4 style="margin-bottom: 8px; font-weight: bold; text-align: center;">CONTATOS:</h4>
+                <ul style="list-style: none; padding: 0; color: #ccc;">
+                    <li>
+                        <strong>E-mail Comercial:</strong><br>
+                        <span style="font-size: 13px;">comercial@metadutos.com</span>
+                    </li>
+                    <li style="margin-top: 16px;">
+                        <strong>E-mail Financeiro:</strong><br>
+                        <span style="font-size: 13px;">financeiro@metadutos.com</span>
+                    </li>
+                    <li style="margin-top: 16px;">
+                        <strong>Telefone Comercial</strong><br>
+                        <span style="font-size: 13px;">+55 11 99614-9110</span>
+                    </li>
+                    <li style="margin-top: 16px;">
+                        <strong>Telefone Financeiro</strong><br>
+                        <span style="font-size: 13px;">+55 11 93719-4646</span>
+                    </li>
+                </ul>
+            </div>
+            <div style="flex: 1;">
+                <h4 style="margin-bottom: 8px; font-weight: bold; text-align: center;">SERVIÇOS:</h4>
+                <ul style="list-style: none; padding: 0; color: #ccc;">
+                    <li>
+                        <strong>Fabricação de Dutos</strong><br>
+                    </li>
+                    <li style="margin-top: 16px;">
+                        <strong>Corte a plasma</strong><br>
+                    </li>
+                    <li style="margin-top: 16px;">
+                        <strong>Flanges em Ferro Chato</strong><br>
+                    </li>
+                </ul>
+            </div>
+            
+
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: flex-start;">
+                <h4 style="margin-bottom: 8px; font-weight: bold;">LOCALIZAÇÃO:</h4>
+                <iframe
+                    src="https://www.google.com/maps?q=MetaDutos,+São+Paulo&output=embed"
+                    width="250"
+                    height="180"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            
+        </div>
+        <div style="color: #aaa; text-align: center; padding: 16px 0; font-size: 14px;">
+            &copy; 2025 MetaDutos. Todos os direitos reservados. | Soluções em Dutos e Ventilação Industrial
+        </div>
+    </footer>
+
+    <script>
+        function openSobreSidebar() {
+            document.getElementById('sobreSidebar').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSobreSidebar() {
+            document.getElementById('sobreSidebar').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function encaminhaWpp() {
+            const numero = '5511956719584';
+            const mensagem = 'Olá, gostaria de solicitar um serviço!';
+
+            window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+        }
+        // Navigation functionality
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionName).classList.add('active');
+
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const company = formData.get('company');
+            const message = formData.get('message');
+
+            // Create email content
+            const emailContent = `
+                Solicitação de Cotação - MetaDutos
+
+                Nome: ${name}
+                E-mail: ${email}
+                Telefone: ${phone}
+                Empresa: ${company || 'Não informado'}
+
+                Descrição do Projeto:
+                ${message}
+            `.trim();
+
+            // Create mailto link
+            const mailtoLink = `mailto:contato@metadutos.com.br?subject=Solicitação de Cotação - ${name}&body=${encodeURIComponent(emailContent)}`;
+
+            // Open email client
+            window.location.href = mailtoLink;
+
+            // Show success message
+            alert('Sua solicitação será enviada por e-mail. Obrigado pelo contato!');
+
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards and gallery items
+        document.querySelectorAll('.service-card, .gallery-item, .stat').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function () {
+            document.body.style.opacity = '1';
+        });
+
+        // Initialize page
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
