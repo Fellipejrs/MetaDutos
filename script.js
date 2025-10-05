@@ -119,4 +119,150 @@
     });
 })();
 
-// ...existing code...
+// Funções utilitárias do site
+function openSobreSidebar() {
+    document.getElementById('sobreSidebar').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSobreSidebar() {
+    document.getElementById('sobreSidebar').style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+function encaminhaWpp() {
+    const numero = '5511956719584';
+    const mensagem = 'Olá, gostaria de solicitar um serviço!';
+    window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+}
+
+// Navegação entre seções
+function showSection(sectionName) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Show selected section
+    document.getElementById(sectionName).classList.add('active');
+
+    // Smooth scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Contact form handling
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const phone = formData.get('phone');
+        const company = formData.get('company');
+        const message = formData.get('message');
+
+        // Create email content
+        const emailContent = `
+            Solicitação de Cotação - MetaDutos
+
+            Nome: ${name}
+            E-mail: ${email}
+            Telefone: ${phone}
+            Empresa: ${company || 'Não informado'}
+
+            Descrição do Projeto:
+            ${message}
+        `.trim();
+
+        // Create mailto link
+        const mailtoLink = `mailto:contato@metadutos.com.br?subject=Solicitação de Cotação - ${name}&body=${encodeURIComponent(emailContent)}`;
+
+        // Open email client
+        window.location.href = mailtoLink;
+
+        // Show success message
+        alert('Sua solicitação será enviada por e-mail. Obrigado pelo contato!');
+
+        // Reset form
+        this.reset();
+    });
+}
+
+// Smooth scrolling for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Add animation on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe all service cards and gallery items
+document.querySelectorAll('.service-card, .gallery-item, .stat').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+});
+
+// Add loading animation
+window.addEventListener('load', function () {
+    document.body.style.opacity = '1';
+});
+
+// Initialize page
+document.body.style.opacity = '0';
+document.body.style.transition = 'opacity 0.5s ease';
+
+// Menu responsivo
+function handleMenuDisplay() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (window.innerWidth <= 830) {
+        menuToggle.style.display = 'flex';
+        navLinks.classList.remove('active');
+    } else {
+        menuToggle.style.display = 'none';
+        navLinks.classList.remove('active');
+        navLinks.style.display = 'flex';
+    }
+}
+window.addEventListener('resize', handleMenuDisplay);
+window.addEventListener('DOMContentLoaded', handleMenuDisplay);
+
+document.getElementById('menuToggle').addEventListener('click', function () {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+});
+
+// Fecha menu ao clicar em um link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 480) {
+            document.getElementById('navLinks').classList.remove('active');
+        }
+    });
+});
