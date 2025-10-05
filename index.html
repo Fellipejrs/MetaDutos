@@ -11,7 +11,7 @@
     <nav>
         <div class="nav-container">
             <div class="logo" style="display: flex; align-items: center;">
-                <img src="./imagens/logo.svg" alt="MetaDutos" style="height: 48px; margin-right: 16px;">
+                <img src="./imagens/logo.svg" alt="MetaDutos" style="height: 100px;">
             </div>
             <!-- Botão menu hamburguer -->
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" style="display:none;">
@@ -23,8 +23,8 @@
                         style="font-weight: bold; color: #0074c8; border-bottom: 2px solid #0074c8;">HOME</a>
                 </li>
                 <li><a href="#" onclick="openSobreSidebar()">SOBRE</a></li>
-                <li><a href="#">PRODUTOS</a></li>
-                <li><a href="#">SERVIÇOS</a></li>
+                <li><a href="#" onclick="scrollToSection('produtos')">PRODUTOS</a></li>
+                <li><a href="#" onclick="scrollToSection('servicos')">SERVIÇOS</a></li>
                 <li><a onclick="showSection('contact')">CONTATO</a></li>
             </ul>
             <div class="social-icons" style="display: flex; gap: 16px;">
@@ -43,15 +43,16 @@
             </div>
         </section>
 
-        <section class="gallery">
+        <section class="gallery" id="produtos">
             <div class="container">
-                <h2 class="section-title">Nossos Projetos</h2>
+                <h2 class="section-title">Nossos Projetos:</h2>
                 <div id="carousel" style="position: relative; width: 100%; height: 600px; margin: 0 auto; overflow: hidden;">
                     <div id="carousel-images" style="display: flex; transition: transform 0.6s ease;">
                         <img src="./imagens/thiago1.jfif" alt="Sistemas de Dutos Externos" style="width: 100%; flex-shrink: 0;">
                         <img src="./imagens/thiago5.jfif" alt="Condensadoras" style="width: 100%; flex-shrink: 0;">
                         <img src="./imagens/thiago6.jfif" alt="Condensadoras" style="width: 100%; flex-shrink: 0;">
                         <img src="./imagens/thiago7.jfif" alt="Condensadoras" style="width: 100%; flex-shrink: 0;">
+                        <img src="./imagens/thiago8.jfif" alt="Condensadoras" style="width: 100%; flex-shrink: 0;">
                     </div>
                     <!-- Botões de navegação -->
                     <button id="carousel-prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; z-index: 2;">&#10094;</button>
@@ -62,7 +63,7 @@
             </div>
         </section>
 
-        <section class="services">
+        <section class="services" id="servicos">
             <div class="container">
                 <h2 class="section-title">Nossos Serviços:</h2>
                 <div class="services-grid">
@@ -81,6 +82,17 @@
                     <div class="service-card">
                         <h3>Manutenção</h3>
                         <p>Oferecemos serviços completos de manutenção preventiva e corretiva em sistemas de climatização e ventilação. Nossa equipe garante o desempenho ideal dos equipamentos, aumentando sua vida útil e reduzindo custos operacionais. Trabalhamos com agilidade, segurança e compromisso com a excelência.</p>
+                    </div>
+                </div>
+                <!-- Layout para download do catálogo -->
+                <div class="catalog-download" style="margin-top: 2.5rem; text-align: center;">
+                    <div style="display: inline-block; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 2rem 2.5rem;">
+                        <img src="./imagens/logo3.jfif" alt="Catálogo PDF" style="width: 15rem; margin-bottom: 1rem;">
+                        <h4 style="margin-bottom: 0.5rem;">Baixe nosso Catálogo de Produtos</h4>
+                        <p style="color: #555; margin-bottom: 1.5rem;">Confira todos os produtos, especificações técnicas e soluções que oferecemos.</p>
+                        <a href="https://imgs.search.brave.com/O6fw9xDHGVuia5YTHSjt0JoxlO0PgCN_JH_Sgs0Fr7Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnJl/ZGQuaXQvODYxZ2s5/Z3FrYTBjMS5wbmc" class="cta-button" style="background: var(--accent-green); color: #fff; text-decoration: none; font-size: 1.1rem; padding: 12px 32px; border-radius: 50px; font-weight: bold; cursor: pointer;">
+                            Baixar Catálogo PDF
+                        </a>
                     </div>
                 </div>
             </div>
@@ -166,24 +178,50 @@
                     <p>Solicite uma cotação ou tire suas dúvidas. Nossa equipe está pronta para atender você!</p>
 
                     <div class="contact-info">
-                        <div class="contact-item" onclick="encaminhaWpp()">
-                            <div class="contact-icon">📱</div>
+                        <div class="contact-item" onclick="encaminhaWpp('551199614-9110')">
+                            <div class="contact-icon">
+                                <img src="./imagens/icons/logo-whatsapp.svg" class="icon-img">
+                            </div>
                             <div>
-                                <strong>WhatsApp</strong><br>
-                                (11) 99999-9999
+                                <strong>WhatsApp Comercial</strong><br>
+                                +55 11 99614-9110
+                            </div>
+                        </div>
+
+                        <div class="contact-item" onclick="encaminhaWpp('551193719-4646')">
+                            <div class="contact-icon">
+                                <img src="./imagens/icons/call-outline.svg" class="icon-img">
+                            </div>
+                            <div>
+                                <strong>WhatsApp Financeiro</strong><br>
+                                +55 11 93719-4646
                             </div>
                         </div>
 
                         <div class="contact-item">
-                            <div class="contact-icon">📞</div>
+                            <div class="contact-icon">
+                                <img src="./imagens/icons/mail-outline.svg" class="icon-img">
+                            </div>
                             <div>
-                                <strong>Telefone Fixo</strong><br>
-                                (11) 3333-4444
+                                <strong>E-mail Comercial</strong><br>
+                                comercial@metadutos.com
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <img src="./imagens/icons/mail-outline.svg" class="icon-img">
+                            </div>
+                            <div>
+                                <strong>E-mail Financeiro</strong><br>
+                                financeiro@metadutos.com
                             </div>
                         </div>
 
                         <a href="https://instagram.com/metadutos" class="contact-item" target="_blank">
-                            <div class="contact-icon">📷</div>
+                            <div class="contact-icon">
+                                <img src="./imagens/icons/logo-instagram.svg" class="icon-img">
+                            </div>
                             <div>
                                 <strong>Instagram</strong><br>
                                 @metadutos
@@ -191,19 +229,13 @@
                         </a>
 
                         <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div>
-                                <strong>E-mail</strong><br>
-                                contato@metadutos.com.br
+                            <div class="contact-icon">
+                                <img src="./imagens/icons/business-outline.svg" class="icon-img">
                             </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">🏢</div>
                             <div>
                                 <strong>Localização</strong> <br>
-                                Rua: NOME DA RUA - NUMERO - SP <br>
-                                São Paulo - SP - CEP: numero do cep
+                                R. Jean Anastace Kovelis, 1651 - Jardim Adelaide <br>
+                                Cajamar - SP, 07791-842, Brasil
                             </div>
                         </div>
                     </div>
@@ -215,10 +247,12 @@
     <div id="sobreSidebar" style="display:none; position:fixed; top:0; right:0; width:400px; max-width:90vw; height:100vh; background:#fff; z-index:9999; box-shadow:-4px 0 24px rgba(0,0,0,0.2); transition:right 0.3s; overflow-y:auto;">
         <button onclick="closeSobreSidebar()" style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:24px; cursor:pointer;">&times;</button>
         <div style="padding:48px 32px 32px 32px;">
-            <h2 style="margin-bottom:16px;">SOBRE A META DUTOS</h2>
+            <h2 style="margin-bottom:16px;">SOBRE A METADUTOS:</h2>
+            <img class="img-sobre" src="./imagens/imagem-top.jfif">
             <p style="color:#333; font-size:16px; line-height:1.6;">
-                Empresa especializada em soluções de ar condicionado industrial, oferecendo projetos e manutenção com alto padrão de qualidade. Atuamos com foco em eficiência energética, tecnologia de ponta e atendimento personalizado. Nosso objetivo é garantir ambientes climatizados com segurança e performance. Contamos com uma equipe técnica qualificada e comprometida com os melhores resultados. Atendemos indústrias de diversos setores, sempre buscando inovação e excelência.
+                Empresa especializada em soluções de ar condicionado industrial, oferecendo projetos e manutenção com alto padrão de qualidade. <br>    Atuamos com foco em eficiência energética, tecnologia de ponta e atendimento personalizado. Nosso objetivo é garantir ambientes climatizados com segurança e performance. <br>  Contamos com uma equipe técnica qualificada e comprometida com os melhores resultados. <br> Atendemos indústrias de diversos setores, sempre buscando inovação e excelência.
             </p>
+            
         </div>
     </div>
 

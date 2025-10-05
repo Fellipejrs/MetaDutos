@@ -130,8 +130,8 @@ function closeSobreSidebar() {
     document.body.style.overflow = '';
 }
 
-function encaminhaWpp() {
-    const numero = '5511956719584';
+function encaminhaWpp(contato) {
+    const numero = contato;
     const mensagem = 'Olá, gostaria de solicitar um serviço!';
     window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
 }
@@ -266,3 +266,13 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         }
     });
 });
+
+function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }

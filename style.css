@@ -608,4 +608,17 @@ html {
     #carousel-images img {
         height: 220px;
     }
+
+    .img-sobre{
+        width: 18rem !important;
+    }
+}
+
+.icon-img{
+    width: 2rem;
+}
+
+.img-sobre{
+   width: 21rem; 
+   margin: 0 0 1rem;
 }
