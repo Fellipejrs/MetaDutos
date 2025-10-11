@@ -276,3 +276,31 @@ function scrollToSection(id) {
       });
     }
   }
+
+// Animação de entrada para os cards de serviços
+function initServiceAnimations() {
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                }, index * 100);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    serviceCards.forEach(card => {
+        observer.observe(card);
+    });
+}
+
+// Inicializa animações quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', () => {
+    initServiceAnimations();
+});

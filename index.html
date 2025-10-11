@@ -67,21 +67,66 @@
             <div class="container">
                 <h2 class="section-title">Nossos Serviços:</h2>
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card service-card-1" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                                <path d="M19 15L20.09 18.26L24 19L20.09 19.74L19 23L17.91 19.74L14 19L17.91 18.26L19 15Z" fill="currentColor"/>
+                                <path d="M5 15L6.09 18.26L10 19L6.09 19.74L5 23L3.91 19.74L0 19L3.91 18.26L5 15Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="service-badge">Premium</div>
                         <h3>Fabricação de Dutos</h3>
                         <p>Desenvolvemos dutos de ar com alto padrão de qualidade, utilizando materiais resistentes e técnicas de montagem precisas. Garantimos perfeita vedação, durabilidade e desempenho ideal para sistemas de ventilação, exaustão e ar-condicionado industrial ou comercial.</p>
+                        <div class="service-features">
+                            <span class="feature-tag">Alta Qualidade</span>
+                            <span class="feature-tag">Durabilidade</span>
+                        </div>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card service-card-2" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="service-badge">Tecnologia</div>
                         <h3>Corte a Plasma</h3>
                         <p>Realizamos cortes a plasma com tecnologia avançada, assegurando precisão milimétrica e excelente acabamento nas peças metálicas. Esse processo garante maior agilidade na produção e redução de desperdícios, atendendo projetos sob medida com máxima eficiência.</p>
+                        <div class="service-features">
+                            <span class="feature-tag">Precisão</span>
+                            <span class="feature-tag">Eficiência</span>
+                        </div>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card service-card-3" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="service-badge">Personalizado</div>
                         <h3>Flanges em Ferro Chato</h3>
                         <p>Produzimos flanges em ferro chato com dimensões personalizadas, perfeitas para conexão e fixação de dutos e equipamentos. Nosso processo garante resistência, alinhamento e vedação confiável, contribuindo para a segurança e durabilidade das instalações.</p>
+                        <div class="service-features">
+                            <span class="feature-tag">Resistência</span>
+                            <span class="feature-tag">Segurança</span>
+                        </div>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card service-card-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="service-badge">Completo</div>
                         <h3>Manutenção</h3>
                         <p>Oferecemos serviços completos de manutenção preventiva e corretiva em sistemas de climatização e ventilação. Nossa equipe garante o desempenho ideal dos equipamentos, aumentando sua vida útil e reduzindo custos operacionais. Trabalhamos com agilidade, segurança e compromisso com a excelência.</p>
+                        <div class="service-features">
+                            <span class="feature-tag">Preventiva</span>
+                            <span class="feature-tag">Corretiva</span>
+                        </div>
                     </div>
                 </div>
                 <!-- Layout para download do catálogo -->
@@ -104,69 +149,48 @@
     <div id="contact" class="section">
         <section class="contact">
             <div class="container">
-                <div>
-                    <h2>Entre em contato</h2>
-                    <p>Solicite uma cotação ou tire suas dúvidas. Nossa equipe está pronta para atender você!</p>
+                <div class="contact-content">
+                    <h2>Contato</h2>
+                    <p>Entre em contato conosco para solicitar uma cotação ou esclarecer dúvidas.</p>
 
                     <div class="contact-info">
                         <div class="contact-item" onclick="encaminhaWpp('551199614-9110')">
-                            <div class="contact-icon">
-                                <img src="./imagens/icons/logo-whatsapp.svg" class="icon-img">
-                            </div>
-                            <div>
-                                <strong>WhatsApp Comercial</strong><br>
-                                +55 11 99614-9110
+                            <img src="./imagens/icons/logo-whatsapp.svg" class="contact-icon">
+                            <div class="contact-details">
+                                <span class="contact-label">WhatsApp Comercial</span>
+                                <span class="contact-value">+55 11 99614-9110</span>
                             </div>
                         </div>
 
                         <div class="contact-item" onclick="encaminhaWpp('551193719-4646')">
-                            <div class="contact-icon">
-                                <img src="./imagens/icons/call-outline.svg" class="icon-img">
-                            </div>
-                            <div>
-                                <strong>WhatsApp Financeiro</strong><br>
-                                +55 11 93719-4646
+                            <img src="./imagens/icons/call-outline.svg" class="contact-icon">
+                            <div class="contact-details">
+                                <span class="contact-label">WhatsApp Financeiro</span>
+                                <span class="contact-value">+55 11 93719-4646</span>
                             </div>
                         </div>
 
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <img src="./imagens/icons/mail-outline.svg" class="icon-img">
-                            </div>
-                            <div>
-                                <strong>E-mail Comercial</strong><br>
-                                comercial@metadutos.com
+                            <img src="./imagens/icons/mail-outline.svg" class="contact-icon">
+                            <div class="contact-details">
+                                <span class="contact-label">E-mail Comercial</span>
+                                <span class="contact-value">comercial@metadutos.com</span>
                             </div>
                         </div>
 
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <img src="./imagens/icons/mail-outline.svg" class="icon-img">
-                            </div>
-                            <div>
-                                <strong>E-mail Financeiro</strong><br>
-                                financeiro@metadutos.com
+                            <img src="./imagens/icons/mail-outline.svg" class="contact-icon">
+                            <div class="contact-details">
+                                <span class="contact-label">E-mail Financeiro</span>
+                                <span class="contact-value">financeiro@metadutos.com</span>
                             </div>
                         </div>
 
-                        <a href="https://instagram.com/metadutos" class="contact-item" target="_blank">
-                            <div class="contact-icon">
-                                <img src="./imagens/icons/logo-instagram.svg" class="icon-img">
-                            </div>
-                            <div>
-                                <strong>Instagram</strong><br>
-                                @metadutos
-                            </div>
-                        </a>
-
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <img src="./imagens/icons/business-outline.svg" class="icon-img">
-                            </div>
-                            <div>
-                                <strong>Localização</strong> <br>
-                                R. Jean Anastace Kovelis, 1651 - Jardim Adelaide <br>
-                                Cajamar - SP, 07791-842, Brasil
+                            <img src="./imagens/icons/business-outline.svg" class="contact-icon">
+                            <div class="contact-details">
+                                <span class="contact-label">Endereço</span>
+                                <span class="contact-value">R. Jean Anastace Kovelis, 1651 - Jardim Adelaide<br>Cajamar - SP, 07791-842, Brasil</span>
                             </div>
                         </div>
                     </div>
