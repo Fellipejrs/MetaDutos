@@ -300,7 +300,31 @@ function initServiceAnimations() {
     });
 }
 
+// Animação de entrada para o catálogo
+function initCatalogAnimations() {
+    const catalogCard = document.querySelector('.catalog-card');
+    
+    if (catalogCard) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, 200);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        observer.observe(catalogCard);
+    }
+}
+
 // Inicializa animações quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
     initServiceAnimations();
+    initCatalogAnimations();
 });
