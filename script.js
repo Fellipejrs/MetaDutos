@@ -138,6 +138,36 @@ function encaminhaWpp(contato) {
 
 // Navegação entre seções
 function showSection(sectionName) {
+    // Verifica se está na página de contato e quer ir para produtos, serviços ou home
+    const currentSection = document.querySelector('.section.active');
+    const isOnContactPage = currentSection && currentSection.id === 'contact';
+    const isGoingToHomeProductsOrServices = ['home', 'produtos', 'servicos'].includes(sectionName);
+    
+    if (isOnContactPage && isGoingToHomeProductsOrServices) {
+        // Redireciona para home primeiro
+        redirectToHomeAndSection(sectionName);
+        return;
+    }
+    
+    // Se for produtos ou serviços, vai para home e depois para a seção
+    if (sectionName === 'produtos' || sectionName === 'servicos') {
+        // Vai para home primeiro
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            section.classList.remove('active');
+        });
+        document.getElementById('home').classList.add('active');
+        
+        // Scroll para o topo
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Aguarda um pouco e vai para a seção específica
+        setTimeout(() => {
+            scrollToSection(sectionName);
+        }, 500);
+        return;
+    }
+    
     // Hide all sections
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => {
@@ -149,6 +179,26 @@ function showSection(sectionName) {
 
     // Smooth scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Função para redirecionar para home e depois para seção específica
+function redirectToHomeAndSection(targetSection) {
+    // Primeiro vai para home
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById('home').classList.add('active');
+    
+    // Scroll para o topo
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Se não for home, aguarda um pouco e vai para a seção específica
+    if (targetSection !== 'home') {
+        setTimeout(() => {
+            scrollToSection(targetSection);
+        }, 500); // Aguarda 500ms para a transição da home
+    }
 }
 
 
