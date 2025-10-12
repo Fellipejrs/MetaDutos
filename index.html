@@ -10,26 +10,22 @@
 <body>
     <nav>
         <div class="nav-container">
-            <div class="logo" style="display: flex; align-items: center;">
-                <img src="./imagens/logo.svg" alt="MetaDutos" style="height: 100px;">
+            <div class="logo">
+                <img src="./imagens/logo.svg" alt="MetaDutos">
             </div>
-            <!-- Botão menu hamburguer -->
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" style="display:none;">
-                <img src="./imagens/icons/menu-outline.svg" alt="Menu" style="height: 32px;">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <img src="./imagens/icons/menu-outline.svg" alt="Menu">
             </button>
-            <!-- Menu centralizado -->
             <ul class="nav-links" id="navLinks">
-                <li><a onclick="showSection('home')"
-                        style="font-weight: bold; color: #0074c8; border-bottom: 2px solid #0074c8;">HOME</a>
-                </li>
+                <li><a onclick="showSection('home')" class="active">HOME</a></li>
                 <li><a href="#" onclick="openSobreSidebar()">SOBRE</a></li>
                 <li><a href="#" onclick="scrollToSection('produtos')">PRODUTOS</a></li>
                 <li><a href="#" onclick="scrollToSection('servicos')">SERVIÇOS</a></li>
                 <li><a onclick="showSection('contact')">CONTATO</a></li>
             </ul>
-            <div class="social-icons" style="display: flex; gap: 16px;">
-                <img src="./imagens/icons/logo-instagram.svg" style="width: 2rem;">
-                <img src="./imagens/icons/logo-linkedin.svg" style="width: 2rem;">
+            <div class="social-icons">
+                <img src="./imagens/icons/logo-instagram.svg" alt="Instagram">
+                <img src="./imagens/icons/logo-linkedin.svg" alt="LinkedIn">
             </div>
         </div>
     </nav>
@@ -47,95 +43,71 @@
             <div class="container">
                 <h2 class="section-title">Nossos Projetos:</h2>
             </div>
-            <div id="carousel" style="position: relative; overflow: hidden;">
-                <div id="carousel-images" style="display: flex; transition: transform 0.6s ease;">
-                    <img src="./imagens/thiago1.jfif" alt="Sistemas de Dutos Externos" style="width: 100%; flex-shrink: 0;">
-                    <img src="./imagens/thiago5.jfif" alt="Condensadoras" style="width: 100%; flex-shrink: 0;">
-                    <img src="./imagens/thiago6.jpg" alt="Condensadoras" style="width: 100%; flex-shrink: 0;">
-                    <img src="./imagens/thiago7.jfif" alt="Condensadoras" style="width: 100%; flex-shrink: 0;">
-                    <img src="./imagens/thiago8.jfif" alt="Condensadoras" style="width: 100%; flex-shrink: 0;">
+            <div id="carousel">
+                <div id="carousel-images">
+                    <img src="./imagens/thiago1.jfif" alt="Sistemas de Dutos Externos">
+                    <img src="./imagens/thiago5.jfif" alt="Condensadoras">
+                    <img src="./imagens/thiago6.jpg" alt="Condensadoras">
+                    <img src="./imagens/thiago7.jfif" alt="Condensadoras">
+                    <img src="./imagens/thiago8.jfif" alt="Condensadoras">
                 </div>
-                <!-- Botões de navegação -->
-                <button id="carousel-prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; z-index: 2;">&#10094;</button>
-                <button id="carousel-next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; z-index: 2;">&#10095;</button>
-                <!-- Indicadores -->
-                <div id="carousel-indicators" style="position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 2;"></div>
+                <button id="carousel-prev">&#10094;</button>
+                <button id="carousel-next">&#10095;</button>
+                <div id="carousel-indicators"></div>
             </div>
         </section>
 
         <section class="services" id="servicos">
             <div class="container">
-                <h2 class="section-title">Nossos Serviços:</h2>
+                <div class="services-header">
+                    <h2 class="section-title">Nossos <span class="title-accent">Serviços</span></h2>
+                    <p class="services-tagline">A MetaDutos oferece soluções completas em sistemas de dutos e ventilação industrial com qualidade e excelência!</p>
+                </div>
+                
                 <div class="services-grid">
-                    <div class="service-card service-card-1" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor"/>
-                                <path d="M19 15L20.09 18.26L24 19L20.09 19.74L19 23L17.91 19.74L14 19L17.91 18.26L19 15Z" fill="currentColor"/>
-                                <path d="M5 15L6.09 18.26L10 19L6.09 19.74L5 23L3.91 19.74L0 19L3.91 18.26L5 15Z" fill="currentColor"/>
-                            </svg>
+                    <div class="service-card service-card-1">
+                        <div class="service-image">
+                            <div class="image-placeholder">
+                                <img src="./imagens/logo3.jfif" alt="Fabricação de Dutos">
+                            </div>
                         </div>
-                        <div class="service-badge">Premium</div>
                         <h3>Fabricação de Dutos</h3>
                         <p>Desenvolvemos dutos de ar com alto padrão de qualidade, utilizando materiais resistentes e técnicas de montagem precisas. Garantimos perfeita vedação, durabilidade e desempenho ideal para sistemas de ventilação, exaustão e ar-condicionado industrial ou comercial.</p>
-                        <div class="service-features">
-                            <span class="feature-tag">Alta Qualidade</span>
-                            <span class="feature-tag">Durabilidade</span>
-                        </div>
                     </div>
-                    <div class="service-card service-card-2" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="currentColor"/>
-                            </svg>
+                    <div class="service-card service-card-2">
+                        <div class="service-image">
+                            <div class="image-placeholder">
+                                <img src="./imagens/logo3.jfif" alt="">
+                            </div>
                         </div>
-                        <div class="service-badge">Tecnologia</div>
                         <h3>Corte a Plasma</h3>
                         <p>Realizamos cortes a plasma com tecnologia avançada, assegurando precisão milimétrica e excelente acabamento nas peças metálicas. Esse processo garante maior agilidade na produção e redução de desperdícios, atendendo projetos sob medida com máxima eficiência.</p>
-                        <div class="service-features">
-                            <span class="feature-tag">Precisão</span>
-                            <span class="feature-tag">Eficiência</span>
-                        </div>
                     </div>
-                    <div class="service-card service-card-3" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                            </svg>
+                    <div class="service-card service-card-3">
+                        <div class="service-image">
+                            <div class="image-placeholder">
+                                <img src="./imagens/logo3.jfif" alt="">
+                            </div>
                         </div>
-                        <div class="service-badge">Personalizado</div>
                         <h3>Flanges em Ferro Chato</h3>
                         <p>Produzimos flanges em ferro chato com dimensões personalizadas, perfeitas para conexão e fixação de dutos e equipamentos. Nosso processo garante resistência, alinhamento e vedação confiável, contribuindo para a segurança e durabilidade das instalações.</p>
-                        <div class="service-features">
-                            <span class="feature-tag">Resistência</span>
-                            <span class="feature-tag">Segurança</span>
-                        </div>
                     </div>
-                    <div class="service-card service-card-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="service-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor"/>
-                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                    <div class="service-card service-card-4">
+                        <div class="service-image">
+                            <div class="image-placeholder">
+                                <img src="./imagens/logo3.jfif" alt="">
+                            </div>
                         </div>
-                        <div class="service-badge">Completo</div>
                         <h3>Manutenção</h3>
                         <p>Oferecemos serviços completos de manutenção preventiva e corretiva em sistemas de climatização e ventilação. Nossa equipe garante o desempenho ideal dos equipamentos, aumentando sua vida útil e reduzindo custos operacionais. Trabalhamos com agilidade, segurança e compromisso com a excelência.</p>
-                        <div class="service-features">
-                            <span class="feature-tag">Preventiva</span>
-                            <span class="feature-tag">Corretiva</span>
-                        </div>
                     </div>
                 </div>
-                <!-- Layout para download do catálogo -->
-                <div class="catalog-download" style="margin-top: 2.5rem; text-align: center;">
-                    <div style="display: inline-block; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 2rem 2.5rem;">
-                        <img src="./imagens/logo3.jfif" alt="Catálogo PDF" style="width: 15rem; margin-bottom: 1rem;">
-                        <h4 style="margin-bottom: 0.5rem;">Baixe nosso Catálogo de Produtos</h4>
-                        <p style="color: #555; margin-bottom: 1.5rem;">Confira todos os produtos, especificações técnicas e soluções que oferecemos.</p>
-                        <a href="https://imgs.search.brave.com/O6fw9xDHGVuia5YTHSjt0JoxlO0PgCN_JH_Sgs0Fr7Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnJl/ZGQuaXQvODYxZ2s5/Z3FrYTBjMS5wbmc" class="cta-button" style="background: var(--primary-green); color: #fff; text-decoration: none; font-size: 1.1rem; padding: 12px 32px; border-radius: 50px; font-weight: bold; cursor: pointer;">
+                <div class="catalog-download">
+                    <div class="catalog-card">
+                        <img src="./imagens/logo3.jfif" alt="Catálogo PDF" class="catalog-logo">
+                        <h4>Baixe nosso Catálogo de Produtos</h4>
+                        <p>Confira todos os produtos, especificações técnicas e soluções que oferecemos.</p>
+                        <a href="https://imgs.search.brave.com/O6fw9xDHGVuia5YTHSjt0JoxlO0PgCN_JH_Sgs0Fr7Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnJl/ZGQuaXQvODYxZ2s5/Z3FrYTBjMS5wbmc" class="catalog-download-btn">
                             Baixar Catálogo PDF
                         </a>
                     </div>
@@ -198,16 +170,14 @@
         </section>
     </div>
 
-    <!-- Modal Sobre -->
-    <div id="sobreSidebar" style="display:none; position:fixed; top:0; right:0; width:400px; max-width:90vw; height:100vh; background:#fff; z-index:9999; box-shadow:-4px 0 24px rgba(0,0,0,0.2); transition:right 0.3s; overflow-y:auto;">
-        <button onclick="closeSobreSidebar()" style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:24px; cursor:pointer;">&times;</button>
-        <div style="padding:48px 32px 32px 32px;">
-            <h2 style="margin-bottom:16px;">SOBRE A METADUTOS:</h2>
-            <img class="img-sobre" src="./imagens/imagem-top.jfif">
-            <p style="color:#333; font-size:16px; line-height:1.6;">
-                Empresa especializada em soluções de ar condicionado industrial, oferecendo projetos e manutenção com alto padrão de qualidade. <br>    Atuamos com foco em eficiência energética, tecnologia de ponta e atendimento personalizado. Nosso objetivo é garantir ambientes climatizados com segurança e performance. <br>  Contamos com uma equipe técnica qualificada e comprometida com os melhores resultados. <br> Atendemos indústrias de diversos setores, sempre buscando inovação e excelência.
+    <div id="sobreSidebar" class="sidebar">
+        <button onclick="closeSobreSidebar()" class="sidebar-close">&times;</button>
+        <div class="sidebar-content">
+            <h2>SOBRE A METADUTOS:</h2>
+            <img class="img-sobre" src="./imagens/imagem-top.jfif" alt="MetaDutos">
+            <p>
+                Empresa especializada em soluções de ar condicionado industrial, oferecendo projetos e manutenção com alto padrão de qualidade. Atuamos com foco em eficiência energética, tecnologia de ponta e atendimento personalizado. Nosso objetivo é garantir ambientes climatizados com segurança e performance. Contamos com uma equipe técnica qualificada e comprometida com os melhores resultados. Atendemos indústrias de diversos setores, sempre buscando inovação e excelência.
             </p>
-            
         </div>
     </div>
 

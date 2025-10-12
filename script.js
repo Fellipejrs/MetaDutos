@@ -151,45 +151,6 @@ function showSection(sectionName) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Contact form handling
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const phone = formData.get('phone');
-        const company = formData.get('company');
-        const message = formData.get('message');
-
-        // Create email content
-        const emailContent = `
-            Solicitação de Cotação - MetaDutos
-
-            Nome: ${name}
-            E-mail: ${email}
-            Telefone: ${phone}
-            Empresa: ${company || 'Não informado'}
-
-            Descrição do Projeto:
-            ${message}
-        `.trim();
-
-        // Create mailto link
-        const mailtoLink = `mailto:contato@metadutos.com.br?subject=Solicitação de Cotação - ${name}&body=${encodeURIComponent(emailContent)}`;
-
-        // Open email client
-        window.location.href = mailtoLink;
-
-        // Show success message
-        alert('Sua solicitação será enviada por e-mail. Obrigado pelo contato!');
-
-        // Reset form
-        this.reset();
-    });
-}
 
 // Smooth scrolling for navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -205,37 +166,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe all service cards and gallery items
-document.querySelectorAll('.service-card, .gallery-item, .stat').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
-
-// Add loading animation
-window.addEventListener('load', function () {
-    document.body.style.opacity = '1';
-});
-
-// Initialize page
-document.body.style.opacity = '0';
-document.body.style.transition = 'opacity 0.5s ease';
 
 // Menu responsivo
 function handleMenuDisplay() {
@@ -261,7 +191,7 @@ document.getElementById('menuToggle').addEventListener('click', function () {
 // Fecha menu ao clicar em um link
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
-        if (window.innerWidth <= 480) {
+        if (window.innerWidth <= 830) {
             document.getElementById('navLinks').classList.remove('active');
         }
     });
@@ -276,55 +206,3 @@ function scrollToSection(id) {
       });
     }
   }
-
-// Animação de entrada para os cards de serviços
-function initServiceAnimations() {
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) scale(1)';
-                }, index * 100);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    serviceCards.forEach(card => {
-        observer.observe(card);
-    });
-}
-
-// Animação de entrada para o catálogo
-function initCatalogAnimations() {
-    const catalogCard = document.querySelector('.catalog-card');
-    
-    if (catalogCard) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0) scale(1)';
-                    }, 200);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        observer.observe(catalogCard);
-    }
-}
-
-// Inicializa animações quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', () => {
-    initServiceAnimations();
-    initCatalogAnimations();
-});
