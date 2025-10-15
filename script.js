@@ -256,3 +256,62 @@ function scrollToSection(id) {
       });
     }
   }
+
+(function () {
+    // Serviços Carrossel
+    const track = document.getElementById('servicesCarouselTrack');
+    const cards = Array.from(track.children);
+    const prevBtn = document.getElementById('servicesPrev');
+    const nextBtn = document.getElementById('servicesNext');
+    let current = 0;
+
+    function getCardsPerView() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 900) return 2;
+        return 3;
+    }
+
+    function updateCarousel() {
+        const cardsPerView = getCardsPerView();
+        const cardWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(track).gap || 0);
+        track.style.transform = `translateX(-${current * cardWidth}px)`;
+        prevBtn.style.display = current === 0 ? 'none' : 'flex';
+        nextBtn.style.display = current >= cards.length - cardsPerView ? 'none' : 'flex';
+    }
+
+    prevBtn.addEventListener('click', () => {
+        const cardsPerView = getCardsPerView();
+        if (current > 0) current--;
+        updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        const cardsPerView = getCardsPerView();
+        if (current < cards.length - cardsPerView) current++;
+        updateCarousel();
+    });
+
+    window.addEventListener('resize', () => {
+        // Ajusta o carrossel ao redimensionar
+        if (current > cards.length - getCardsPerView()) {
+            current = Math.max(0, cards.length - getCardsPerView());
+        }
+        updateCarousel();
+    });
+
+    // Inicialização
+    setTimeout(updateCarousel, 100); // Aguarda renderização
+
+    // Opcional: swipe para mobile
+    let startX = null;
+    track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+    track.addEventListener('touchend', (e) => {
+        if (startX === null) return;
+        let endX = e.changedTouches[0].clientX;
+        if (endX - startX > 50) prevBtn.click();
+        else if (startX - endX > 50) nextBtn.click();
+        startX = null;
+    });
+})();
