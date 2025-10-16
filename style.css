@@ -93,7 +93,7 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: var(--light-gray);
+    /* background: var(--light-gray); */
     color: var(--black);
     padding: 0 0 1.875rem;
     text-align: center;
@@ -781,12 +781,12 @@ nav {
     .services {
         padding: 60px 0;
     }
-
+/* 
     .gallery,
     .about,
     .contact {
         padding: 2rem 0;
-    }
+    } */
 
     .section-title {
         font-size: 2rem;
