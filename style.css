@@ -1312,10 +1312,11 @@ html {
 /* Responsivo para telas menores */
 @media (max-width: 675px) {
     #carousel {
-        height: 220px !important;
+        height: 230px !important;
+        width: 100%;
     }
     #carousel-images img {
-        height: 220px;
+        height: 230px;
     }
 
     .img-sobre{
@@ -1542,4 +1543,45 @@ html {
     align-items: center;
     margin: 0 1.2rem 1.2rem 1.2rem;
     border: none;
+}
+
+/* ==== IMAGENS RESPONSIVAS ==== */
+
+/* Todas as imagens se adaptam à largura do container */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ajusta o carrossel pra ficar fluido em qualquer tela */
+#carousel {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+#carousel-images {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+#carousel-images img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Responsividade do carrossel */
+@media (max-width: 768px) {
+  #carousel {
+    height: 300px; /* altura reduzida no mobile */
+  }
+}
+
+/* Imagens do footer */
+footer img {
+  max-width: 200px;
+  height: auto;
 }
