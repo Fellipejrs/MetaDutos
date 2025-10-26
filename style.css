@@ -472,6 +472,7 @@ nav {
     font-weight: bold;
     cursor: pointer;
     display: inline-block;
+    border: none;
 }
 
 /* Gallery Section */

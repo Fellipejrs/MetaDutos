@@ -1,3 +1,13 @@
+function downloadFromUrl(url, filename) {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename || '';
+    link.target = '_blank'; // Abre em nova aba se necessário
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 (function () {
     const carousel = document.getElementById('carousel-images');
     const images = Array.from(carousel.querySelectorAll('img'));
