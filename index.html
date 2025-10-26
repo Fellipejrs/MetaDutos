@@ -21,6 +21,7 @@
                 <li><a href="#" onclick="openSobreSidebar()">SOBRE</a></li>
                 <li><a href="#" onclick="showSection('produtos')">PRODUTOS</a></li>
                 <li><a href="#" onclick="showSection('servicos')">SERVIÇOS</a></li>
+                <li><a href="#" onclick="showSection('cotacao')">COTAÇÃO</a></li>
                 <li><a onclick="showSection('contact')">CONTATO</a></li>
             </ul>
             <div class="social-icons">
@@ -116,7 +117,7 @@
                         <a href="#" class="cta-button" onclick="showSection('contact')">Solicite uma Cotação</a>
                     </div>
                 </section>
-                
+
                 <div class="catalog-download">
                     <div class="catalog-card">
                         <img src="./imagens/logo3.jfif" alt="Catálogo PDF" class="catalog-logo">
@@ -130,8 +131,77 @@
             </div>
         </section>
 
-         
-        
+    </div>
+
+    <!-- COTAÇÃO SECTION -->
+    <div id="cotacao" class="section">
+        <section class="quote-section">
+            <div class="quote-container">
+                <div class="quote-content">
+                    <div class="quote-description">
+                        <div class="quote-label">SERVIÇO DE:</div>
+                        <h2 class="quote-title">Sistemas de Dutos e Ventilação</h2>
+                        <h3 class="quote-subtitle">Soluções Industriais Completas</h3>
+                        <p class="quote-text">Especialistas em fabricação de dutos, corte a plasma e assistência técnica especializada. Oferecemos soluções personalizadas para sistemas de ventilação industrial, garantindo eficiência energética e máxima durabilidade. Nossa equipe técnica qualificada desenvolve projetos sob medida, utilizando materiais de alta qualidade e tecnologia de ponta para atender às necessidades específicas de cada cliente.</p>
+                    </div>
+                    <div class="quote-form-container">
+                        <h2 class="quote-form-title">Solicite uma <span class="quote-accent">Cotação</span></h2>
+                        <form class="quote-form" action="https://formsubmit.co/felliperocha464@gmail.com" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nome">SEU NOME</label>
+                                    <input type="text" id="nome" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefone">TEL. OU CELULAR</label>
+                                    <input type="tel" id="telefone" name="phone" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label for="email">E-MAIL</label>
+                                    <input type="email" id="email" name="email_destino" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cidade">CIDADE</label>
+                                    <input type="text" id="cidade" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="estado">ESTADO</label>
+                                    <input type="text" id="estado" name="state" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label for="servico">SERVIÇO SELECIONADO</label>
+                                    <select id="servico" name="service" required>
+                                        <option value="">Selecione um serviço</option>
+                                        <option value="fabricacao-dutos">Fabricação de Dutos</option>
+                                        <option value="corte-plasma">Corte a Plasma</option>
+                                        <option value="flanges-ferro">Flanges em Ferro Chato</option>
+                                        <option value="assistencia-tecnica">Assistência Técnica</option>
+                                        <option value="projeto-completo">Projeto Completo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <input type="hidden" name="_captcha" value="false">
+                            <!-- <input type="hidden" name="_next" value="https://www.youtube.com/watch?v=4iisysmwB_k"> -->
+                            <input type="hidden" name="_next" value="http://estudo2.local/">
+                            <input type="hidden" name="_subject" value="Novo envio de cotação!"> 
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label for="mensagem">MENSAGEM DE COTAÇÃO</label>
+                                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva suas necessidades e especificações do projeto..."></textarea>
+                                </div>
+                            </div>
+                            <button class="quote-submit-btn">Enviar Solicitação</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- CONTACT SECTION -->
