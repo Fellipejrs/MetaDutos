@@ -224,6 +224,8 @@ nav {
     max-width: calc(33.333% - 1.33rem);
     flex: 0 0 calc(33.333% - 1.33rem);
     border-radius: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Carrossel de Serviços - Responsividade */
@@ -1541,7 +1543,7 @@ html {
     cursor: pointer;
     display: inline-block;
     align-items: center;
-    margin: 0 1.2rem 1.2rem 1.2rem;
+    margin: 0 4.2rem 1.2rem 4.2rem;
     border: none;
 }
 
