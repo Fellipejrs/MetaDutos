@@ -11,7 +11,7 @@
     <nav>
         <div class="nav-container">
             <div class="logo" onclick="showSection('home')">
-                <img src="./imagens/imagensFinais/METADUTOS.svg">
+                <img src="./imagens/imagensFinais/logo-topo.jfif">
             </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
                 <img src="./imagens/icons/menu-outline.svg" alt="Menu">
@@ -64,7 +64,7 @@
                         <div class="service-card service-card-1">
                             <div class="service-image">
                                 <div class="image-placeholder">
-                                    <img src="./imagens/imagensFinais/servico5.svg" alt="Fabricação de Dutos">
+                                    <img src="./imagens/imagensFinais/dutos.jfif" alt="Fabricação de Dutos">
                                 </div>
                             </div>
                             <h3>FABRICAÇÃO DE DUTOS</h3>
@@ -121,14 +121,6 @@
                     <img src="./imagens/imagensFinais/mapabr.png" class="img-mapa-brasil">
                 </div>
 
-                <section class="hero">
-                    <div class="hero-content">
-                        <h1>MetaDutos</h1>
-                        <p>Soluções completas em sistemas de dutos e ventilação industrial</p>
-                        <a href="#" class="cta-button" onclick="showSection('contact')">Solicite uma Cotação</a>
-                    </div>
-                </section>
-
                 <div class="catalog-download">
                     <div class="catalog-card">
                         <img src="./imagens/logo3.jfif" alt="Catálogo PDF" class="catalog-logo">
@@ -155,58 +147,63 @@
                     </div>
                     <div class="quote-form-container">
                         <h2 class="quote-form-title">Solicite uma <span class="quote-accent">Cotação</span></h2>
-                        <form class="quote-form" action="https://formsubmit.co/comercial@metadutos.com" method="POST">
+                        <form id="quote-form" class="quote-form">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="nome">SEU NOME</label>
-                                    <input type="text" id="nome" name="name" required>
+                                <label for="nome">SEU NOME</label>
+                                <input type="text" id="nome" name="name" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="telefone">TEL. OU CELULAR</label>
-                                    <input type="tel" id="telefone" name="phone" required>
+                                <label for="telefone">TEL. OU CELULAR</label>
+                                <input type="tel" id="telefone" name="phone" required>
                                 </div>
                             </div>
+
                             <div class="form-row">
                                 <div class="form-group full-width">
-                                    <label for="email">E-MAIL</label>
-                                    <input type="email" id="email" name="email_destino" required>
+                                <label for="email">E-MAIL</label>
+                                <input type="email" id="email" name="email" required>
                                 </div>
                             </div>
+
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="cidade">CIDADE</label>
-                                    <input type="text" id="cidade" name="city" required>
+                                <label for="cidade">CIDADE</label>
+                                <input type="text" id="cidade" name="city" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="estado">ESTADO</label>
-                                    <input type="text" id="estado" name="state" required>
+                                <label for="estado">ESTADO</label>
+                                <input type="text" id="estado" name="state" required>
                                 </div>
                             </div>
+
                             <div class="form-row">
                                 <div class="form-group full-width">
-                                    <label for="servico">SERVIÇO SELECIONADO</label>
-                                    <select id="servico" name="service" required>
-                                        <option value="">Selecione um serviço</option>
-                                        <option value="fabricacao-dutos">Fabricação de Dutos</option>
-                                        <option value="corte-plasma">Corte a Plasma</option>
-                                        <option value="flanges-ferro">Flanges em Ferro Chato</option>
-                                        <option value="assistencia-tecnica">Assistência Técnica</option>
-                                        <option value="projeto-completo">Projeto Completo</option>
-                                    </select>
+                                <label for="servico">SERVIÇO SELECIONADO</label>
+                                <select id="servico" name="service" required>
+                                    <option value="">Selecione um serviço</option>
+                                    <option value="fabricacao-dutos">Fabricação de Dutos</option>
+                                    <option value="corte-plasma">Corte a Plasma</option>
+                                    <option value="flanges-ferro">Flanges em Ferro Chato</option>
+                                    <option value="assistencia-tecnica">Assistência Técnica</option>
+                                    <option value="projeto-completo">Projeto Completo</option>
+                                </select>
                                 </div>
                             </div>
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_next" value="https://www.youtube.com/watch?v=4iisysmwB_k">
-                            <!-- <input type="hidden" name="_next" value="http://estudo2.local/"> -->
-                            <input type="hidden" name="_subject" value="Novo envio de cotação!"> 
+
                             <div class="form-row">
                                 <div class="form-group full-width">
-                                    <label for="mensagem">MENSAGEM DE COTAÇÃO</label>
-                                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva suas necessidades e especificações do projeto..."></textarea>
+                                <label for="mensagem">MENSAGEM DE COTAÇÃO</label>
+                                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva suas necessidades e especificações do projeto..."></textarea>
                                 </div>
                             </div>
-                            <button class="quote-submit-btn">Enviar Solicitação</button>
-                        </form>
+
+                            <button class="quote-submit-btn" type="submit">Enviar Solicitação</button>
+                            </form>
+
+                            <!-- Alerta de sucesso/erro -->
+                            <p id="form-message" style="margin-top: 10px;"></p>
+
                     </div>
                 </div>
             </div>
@@ -281,7 +278,7 @@
         <div class="footer-container">
             <!-- Logo e Descrição -->
             <div class="footer-section footer-logo">
-                <img src="./imagens/logo.jpeg" alt="MetaDutos - Soluções em Dutos e Ventilação Industrial" class="footer-logo-img">
+                <img src="./imagens/imagensFinais/logo-rodape.png" alt="MetaDutos - Soluções em Dutos e Ventilação Industrial" class="footer-logo-img">
                 <p class="footer-description">
                     Especialistas em fabricação de dutos, corte a plasma e soluções em ventilação industrial.
                 </p>
@@ -375,6 +372,31 @@
     </a>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("izMiO-iV6fKwrwrBS");
+        })();
+
+        document.getElementById("quote-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const form = this;
+            const messageBox = document.getElementById("form-message");
+
+            emailjs.sendForm("service_j6kftas", "template_kvue0th", form)
+            .then(() => {
+                messageBox.style.color = "green";
+                messageBox.textContent = "✅ Cotação enviada com sucesso! Em breve entraremos em contato.";
+                form.reset();
+            })
+            .catch((error) => {
+                console.error("Erro:", error);
+                messageBox.style.color = "red";
+                messageBox.textContent = "❌ Ocorreu um erro ao enviar. Tente novamente mais tarde.";
+            });
+        });
+    </script>
 </body>
 
 </html>
