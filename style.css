@@ -293,7 +293,7 @@ nav {
 
 .image-placeholder img {
     width: 100%;
-    height: 150%;
+    height: 100%;
     object-fit: cover;
     border-radius: 15px;
 }
@@ -1042,7 +1042,7 @@ nav {
 }
 
 .footer-logo {
-    align-items: flex-start;
+    align-items: center;
 }
 
 .footer-logo-img {
@@ -1056,6 +1056,7 @@ nav {
     line-height: 1.6;
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
+    text-align: center;
 }
 
 .footer-title {
@@ -1273,7 +1274,7 @@ html {
     position: relative;
     overflow: hidden;
     width: 100vw;
-    height: 100vh;
+    height: 70vh;
     margin: 0;
     left: 50%;
     right: 50%;
@@ -1288,7 +1289,7 @@ html {
 
 #carousel-images img {
     width: 100%;
-    height: 100vh;
+    height: 70vh;
     object-fit: cover;
     flex-shrink: 0;
 }
