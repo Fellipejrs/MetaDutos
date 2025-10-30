@@ -166,7 +166,7 @@ nav {
 }
 
 .services-header .section-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--black);
     margin-bottom: 1rem;
     font-weight: 700;
@@ -178,7 +178,7 @@ nav {
 
 .services-tagline {
     color: #666;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -578,7 +578,7 @@ nav {
 }
 
 .contact {
-    padding: 4rem 0;
+    padding: 10rem 0;
     background: var(--white);
     color: var(--black);
 }
@@ -1527,8 +1527,9 @@ html {
 
 .sidebar-content p {
     color: #333;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.6;
+    font-weight: 500;
 }
 
 /* WhatsApp Float Button */
@@ -1618,8 +1619,7 @@ footer img {
 /* ==== SEÇÃO DE COTAÇÃO ==== */
 .quote-section {
     background: var(--white);
-    padding: 4rem 0;
-    margin: 2rem 0;
+    padding: 11rem 0;
 }
 
 .quote-container {
@@ -1651,7 +1651,7 @@ footer img {
 
 .quote-title {
     color: var(--dark-gray);
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
     line-height: 1.2;
@@ -1666,7 +1666,7 @@ footer img {
 
 .quote-text {
     color: var(--dark-gray);
-    font-size: 1rem;
+    font-size: 1.3rem;
     line-height: 1.6;
     margin: 0;
 }
