@@ -162,7 +162,7 @@ nav {
 /* Services Header */
 .services-header {
     text-align: center;
-    margin-bottom: 4rem;
+    /* margin-bottom: 4rem; */
 }
 
 .services-header .section-title {
@@ -426,7 +426,7 @@ nav {
     position: relative;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto 2rem;
+    margin: 2rem auto 6rem;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -452,14 +452,14 @@ nav {
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    padding: 2rem 2.5rem;
+    padding: 2rem 2rem;
     flex-direction: column;
     align-items: center;
-    width: 29rem;
+    width: 20rem;
 }
 
 .catalog-logo {
-    width: 15rem;
+    width: 10rem;
     margin-bottom: 1rem;
     border-radius: 15px;
 }
@@ -469,6 +469,7 @@ nav {
     align-items: center;
     justify-content: space-evenly;
     gap: 2rem;
+    margin: 8rem auto 8rem;
 }
 
 .container-mapa-brasil-texto {
