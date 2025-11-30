@@ -13,6 +13,7 @@
     --text-color: #333;
     --white: #ffffff;
     --black: #000;
+    --text-cotacao: #737373
 }
 
 body {
@@ -1643,8 +1644,8 @@ footer img {
 
 .quote-label {
     color: var(--accent-green);
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
@@ -1652,7 +1653,7 @@ footer img {
 
 .quote-title {
     color: var(--dark-gray);
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
     line-height: 1.2;
@@ -1661,15 +1662,22 @@ footer img {
 .quote-subtitle {
     color: var(--dark-gray);
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 1.5rem;
 }
 
 .quote-text {
-    color: var(--dark-gray);
+    color: var(--text-cotacao);
     font-size: 1.3rem;
     line-height: 1.6;
     margin: 0;
+}
+
+.box-lu{
+    margin-left: 2rem;
+    color: var(--text-cotacao);
+    font-size: 1.2rem;
+    line-height: 1.6;
 }
 
 /* Coluna do Formulário */
