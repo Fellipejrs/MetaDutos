@@ -724,6 +724,18 @@ nav {
 }
 
 @media (max-width: 830px) {
+    .container-mapa-brasil{
+        flex-direction: column;
+    }
+
+    .container-mapa-brasil-texto{
+        text-align: center;
+    }
+
+    #clients-carousel{
+        padding: 40px 0 0 0!important;
+    }
+
     .logo img{
         height: 4rem;
     }
