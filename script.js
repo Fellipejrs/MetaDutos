@@ -132,273 +132,180 @@ function downloadFromUrl(url, filename) {
 // Clients Carousel
 (function () {
     const carousel = document.getElementById('clients-carousel-images');
-    const images = Array.from(carousel.querySelectorAll('img'));
-    const prevBtn = document.getElementById('clients-carousel-prev');
-    const nextBtn = document.getElementById('clients-carousel-next');
-    
-    let currentIndex = 0;
+    // const prevBtn = document.getElementById('clients-carousel-prev');
+    // const nextBtn = document.getElementById('clients-carousel-next');
+    const dotsContainer = document.getElementById('clients-carousel-dots');
+    let dots = [];
+
+    let slides;
+    let index = 2;
+    let slideWidth = 0;
     let isAnimating = false;
-    let autoSlideInterval;
-    const TOTAL_IMAGES = 3; // Número fixo de imagens
-    
-    // Configuração inicial do carrossel
-    function initCarousel() {
-        const carouselContainer = carousel.parentElement;
-        
-        // Duplica imagens para criar efeito de loop infinito
-        // Adiciona clones no início
-        images.forEach((img, index) => {
-            const clone = img.cloneNode(true);
-            carousel.insertBefore(clone, carousel.firstChild);
-        });
-        
-        // Adiciona clones no final
-        images.forEach((img, index) => {
-            const clone = img.cloneNode(true);
-            carousel.appendChild(clone);
-        });
-        
-        // Adiciona mais clones para fluidez (opcional)
-        images.forEach((img, index) => {
-            const clone = img.cloneNode(true);
-            carousel.appendChild(clone);
-        });
-        
-        // Configura índice inicial no "meio" do array de clones
-        const allImages = carousel.querySelectorAll('img');
-        currentIndex = TOTAL_IMAGES; // Começa após os clones iniciais
-        
-        // Aplica estilos iniciais
-        updateImageStyles();
-        updateCarouselPosition(false);
-        
-        return allImages.length;
-    }
-    
-    // Atualiza a posição do carrossel
-    function updateCarouselPosition(animate = true) {
-        if (isAnimating) return;
-        
-        isAnimating = animate;
-        
-        const allImages = carousel.querySelectorAll('img');
-        const imageWidth = 100 / 3; // 3 imagens visíveis
-        const translateX = -currentIndex * imageWidth;
-        
-        carousel.style.transition = animate ? 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
-        carousel.style.transform = `translateX(${translateX}%)`;
-        
-        // Atualiza estilos das imagens
-        updateImageStyles();
-        
-        if (animate) {
-            setTimeout(() => {
-                isAnimating = false;
-                checkAndResetPosition();
-            }, 800);
-        }
-    }
-    
-    // Atualiza classes de estilo das imagens
-    function updateImageStyles() {
-        const allImages = carousel.querySelectorAll('img');
-        const centerIndex = currentIndex + 1; // Ajuste para imagem central
-        
-        allImages.forEach((img, index) => {
-            // Remove todas as classes
-            img.classList.remove('active', 'side', 'hidden');
-            
-            // Calcula a distância relativa
-            const distance = Math.abs(index - centerIndex);
-            
-            if (distance === 0) {
-                img.classList.add('active'); // Imagem central
-            } else if (distance === 1) {
-                img.classList.add('side'); // Imagens laterais mais próximas
-                img.style.opacity = '0.6';
-            } else if (distance === 2) {
-                img.classList.add('side'); // Imagens laterais mais distantes
-                img.style.opacity = '0.3';
-            } else {
-                img.classList.add('hidden'); // Imagens muito distantes
-                img.style.opacity = '0.1';
-            }
-        });
-    }
-    
-    // Verifica e reseta a posição para loop infinito
-    function checkAndResetPosition() {
-        const allImages = carousel.querySelectorAll('img');
-        const totalWithClones = allImages.length;
-        const buffer = TOTAL_IMAGES * 2; // Margem de segurança
-        
-        // Se chegou perto do final
-        if (currentIndex >= totalWithClones - buffer) {
-            setTimeout(() => {
-                carousel.style.transition = 'none';
-                // Volta para uma posição mais central
-                currentIndex = TOTAL_IMAGES + 3;
-                updateCarouselPosition(false);
-            }, 50);
-        }
-        // Se chegou perto do início
-        else if (currentIndex <= buffer) {
-            setTimeout(() => {
-                carousel.style.transition = 'none';
-                // Vai para uma posição perto do final
-                currentIndex = totalWithClones - buffer - 3;
-                updateCarouselPosition(false);
-            }, 50);
-        }
-    }
-    
-    // Navegação
-    function nextSlide() {
-        if (isAnimating) return;
-        currentIndex++;
-        updateCarouselPosition();
-    }
-    
-    function prevSlide() {
-        if (isAnimating) return;
-        currentIndex--;
-        updateCarouselPosition();
-    }
-    
-    // Auto-slide infinito
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-            nextSlide();
-        }, 4000); // Move a cada 4 segundos
-    }
-    
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
-    
-    // Event Listeners para botões
-    prevBtn.addEventListener('click', () => {
-        stopAutoSlide();
-        prevSlide();
-        setTimeout(startAutoSlide, 6000); // Retoma após 6 segundos
-    });
-    
-    nextBtn.addEventListener('click', () => {
-        stopAutoSlide();
-        nextSlide();
-        setTimeout(startAutoSlide, 6000); // Retoma após 6 segundos
-    });
-    
-    // Navegação por teclado
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') {
-            e.preventDefault();
-            nextSlide();
-        } else if (e.key === 'ArrowLeft') {
-            e.preventDefault();
-            prevSlide();
-        }
-    });
-    
-    // Navegação por swipe (mobile)
-    let touchStartX = 0;
-    let isSwiping = false;
-    let swipeDistance = 0;
-    
-    carousel.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-        isSwiping = true;
-        swipeDistance = 0;
-        stopAutoSlide();
-    }, { passive: true });
-    
-    carousel.addEventListener('touchmove', (e) => {
-        if (!isSwiping) return;
-        
-        const touchX = e.touches[0].clientX;
-        const diff = touchStartX - touchX;
-        swipeDistance = Math.abs(diff);
-        
-        // Efeito visual de arrasto
-        if (swipeDistance > 10) {
-            const imageWidth = 100 / 3;
-            const gapPercentage = 40 / (carousel.parentElement.offsetWidth / 100);
-            const dragOffset = diff / (carousel.parentElement.offsetWidth / 100) / (imageWidth + gapPercentage);
-            const translateX = -(currentIndex + dragOffset) * (imageWidth + gapPercentage);
-            
-            carousel.style.transition = 'none';
-            carousel.style.transform = `translateX(${translateX}%)`;
-            
-            // Efeito visual nas imagens durante o swipe
-            const allImages = carousel.querySelectorAll('img');
-            allImages.forEach(img => {
-                const currentOpacity = parseFloat(window.getComputedStyle(img).opacity);
-                img.style.opacity = Math.max(0.1, currentOpacity * 0.8);
+    let autoSlide;
+
+    function createDots(total) {
+        dotsContainer.innerHTML = '';
+        dots = [];
+
+        for (let i = 0; i < total; i++) {
+            const dot = document.createElement('button');
+
+            dot.addEventListener('click', () => {
+                stopAuto();
+                index = i + 1;
+                move();
+                restartAuto();
             });
+
+            dotsContainer.appendChild(dot);
+            dots.push(dot);
         }
-    }, { passive: true });
-    
-    carousel.addEventListener('touchend', (e) => {
-        if (!isSwiping) return;
-        
-        const touchEndX = e.changedTouches[0].clientX;
-        const diff = touchStartX - touchEndX;
-        const swipeThreshold = 60; // Limite maior para 3 imagens
-        
-        // Restaura opacidade normal
-        updateImageStyles();
-        
-        if (swipeDistance > swipeThreshold) {
-            if (diff > 0) {
-                nextSlide();
-            } else {
-                prevSlide();
-            }
-        } else {
-            // Se não houve swipe suficiente, volta para posição atual
-            updateCarouselPosition(true);
-        }
-        
-        isSwiping = false;
-        setTimeout(startAutoSlide, 3000);
-    }, { passive: true });
-    
-    // Pausa auto-slide ao passar mouse
-    const carouselContainer = carousel.parentElement;
-    carouselContainer.addEventListener('mouseenter', stopAutoSlide);
-    carouselContainer.addEventListener('mouseleave', startAutoSlide);
-    
-    // Inicialização
-    initCarousel();
-    startAutoSlide();
-    
-    // Responsividade
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            updateCarouselPosition(false);
-        }, 300);
-    });
-    
-    // Função para debug (opcional)
-    function logCarouselState() {
-        const allImages = carousel.querySelectorAll('img');
-        console.log(`Total de imagens (com clones): ${allImages.length}`);
-        console.log(`Índice atual: ${currentIndex}`);
-        console.log(`Animando: ${isAnimating}`);
     }
-    
-    // Expor funções para debug no console (opcional)
-    window.carouselDebug = {
-        next: nextSlide,
-        prev: prevSlide,
-        state: logCarouselState,
-        stop: stopAutoSlide,
-        start: startAutoSlide
-    };
-    
-    console.log('Carrossel infinito com 3 imagens inicializado!');
+
+
+    function setup() {
+        const originalSlides = Array.from(carousel.children);
+
+        const firstClone = originalSlides[0].cloneNode(true);
+        const lastClone = originalSlides[originalSlides.length - 1].cloneNode(true);
+
+        carousel.insertBefore(lastClone, originalSlides[0]);
+        carousel.appendChild(firstClone);
+
+        slides = Array.from(carousel.children);
+
+        calculateWidth();
+        move(false);
+        updateClasses();
+        createDots(slides.length - 2);
+        updateDots();
+    }
+
+    function updateDots() {
+        const realIndex = index - 1;
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === realIndex);
+        });
+    }
+
+    function calculateWidth() {
+        const slide = slides[0];
+        const gap = parseInt(getComputedStyle(carousel).gap) || 0;
+        slideWidth = slide.offsetWidth + gap;
+    }
+
+    function move(animate = true) {
+        carousel.style.transition = animate
+            ? 'transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+            : 'none';
+
+        const containerWidth = carousel.parentElement.offsetWidth;
+        const offsetCenter = (containerWidth - slideWidth) / 2;
+
+        carousel.style.transform = `
+            translateX(${offsetCenter - index * slideWidth}px)
+        `;
+    }
+
+    function updateClasses() {
+        slides.forEach((img, i) => {
+            img.className = '';
+
+            const diff = Math.abs(i - index);
+
+            if (diff === 0) img.classList.add('active');
+            else if (diff === 1) img.classList.add('side');
+            else img.classList.add('hidden');
+        });
+    }
+
+    function next() {
+        if (isAnimating) return;
+        isAnimating = true;
+        index++;
+        move();
+    }
+
+    function prev() {
+        if (isAnimating) return;
+        isAnimating = true;
+        index--;
+        move();
+    }
+
+    carousel.addEventListener('transitionend', () => {
+        isAnimating = false;
+
+        if (index === slides.length - 1) {
+            index = 1;
+            move(false);
+            requestAnimationFrame(() => {
+                updateClasses();
+                updateDots();
+            });
+            return;
+        }
+
+        if (index === 0) {
+            index = slides.length - 2;
+            move(false);
+            requestAnimationFrame(() => {
+                updateClasses();
+                updateDots();
+            });
+            return;
+        }
+
+        updateClasses();
+        updateDots();
+    });
+
+
+    // nextBtn.addEventListener('click', () => {
+    //     stopAuto();
+    //     next();
+    //     restartAuto();
+    // });
+
+    // prevBtn.addEventListener('click', () => {
+    //     stopAuto();
+    //     prev();
+    //     restartAuto();
+    // });
+
+    function startAuto() {
+        autoSlide = setInterval(next, 4000);
+    }
+
+    function stopAuto() {
+        clearInterval(autoSlide);
+    }
+
+    function restartAuto() {
+        setTimeout(startAuto, 5000);
+    }
+
+    let startX = 0;
+
+    carousel.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        stopAuto();
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 60) diff > 0 ? next() : prev();
+        restartAuto();
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+        calculateWidth();
+        move(false);
+    });
+
+    setup();
+    startAuto();
 })();
 
 // Funções utilitárias do site

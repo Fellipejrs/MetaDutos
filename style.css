@@ -1356,32 +1356,37 @@ html {
 
 #clients-carousel-images img {
     width: 33.33%;
-    height: 150px;
+    height: 85px;
     object-fit: cover;
     flex-shrink: 0;
+
+    transition:
+        transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        opacity 0.6s ease,
+        box-shadow 0.6s ease;
 }
 
 /* Imagem central - máximo destaque */
 #clients-carousel-images img.active {
     transform: scale(1.15);
-    box-shadow: 
-        0 15px 40px rgba(0, 116, 200, 0.25),
-        0 5px 15px rgba(0,0,0,0.1),
-        inset 0 0 0 1px rgba(0, 116, 200, 0.2);
+    opacity: 1;
     z-index: 10;
-    opacity: 1 !important;
+
+    box-shadow:
+        0 18px 45px rgba(0, 116, 200, 0.25),
+        0 6px 18px rgba(0,0,0,0.15);
 }
 
 /* Imagens laterais */
 #clients-carousel-images img.side {
-    opacity: 0.5;
     transform: scale(0.85);
+    opacity: 0.5;
 }
 
 /* Imagens escondidas */
 #clients-carousel-images img.hidden {
-    opacity: 0.2;
     transform: scale(0.7);
+    opacity: 0.25;
 }
 
 /* Botões de navegação */
@@ -1392,10 +1397,10 @@ html {
     transform: translateY(-50%);
     background: white;
     border: none;
-    width: 70px;
-    height: 70px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-    font-size: 32px;
+    font-size: 16px;
     color: #0074c8;
     cursor: pointer;
     z-index: 20;
@@ -1421,11 +1426,11 @@ html {
 }
 
 #clients-carousel-prev {
-    left: 30px;
+    left: 50px;
 }
 
 #clients-carousel-next {
-    right: 30px;
+    right: 50px;
 }
 
 /* Gradientes mais suaves */
@@ -1439,6 +1444,30 @@ html {
     z-index: 5;
     pointer-events: none;
 }
+
+#clients-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+#clients-carousel-dots button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#clients-carousel-dots button.active {
+    width: 28px;
+    border-radius: 10px;
+    background: var(--accent-green);
+}
+
 
 /* Responsivo para telas médias */
 @media (max-width: 1024px) and (min-width: 676px) {
