@@ -492,6 +492,12 @@ nav {
     border: none;
 }
 
+/* Section Clientes */
+.section-clientes {
+    padding: 30px 0;
+    background: #D3D3D3; /* Cinza chumbo claro */
+}
+
 /* Gallery Section */
 .gallery {
     /* padding: 80px 0; */
@@ -1329,6 +1335,109 @@ html {
     display: flex;
     gap: 8px;
     z-index: 2;
+}
+
+#clients-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 120px; /* Mais espaço para mostrar laterais */
+}
+
+#clients-carousel-images {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    gap: 40px; /* Espaço maior entre imagens */
+    will-change: transform;
+    align-items: center;
+}
+
+#clients-carousel-images img {
+    width: 33.33%;
+    height: 150px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Imagem central - máximo destaque */
+#clients-carousel-images img.active {
+    transform: scale(1.15);
+    box-shadow: 
+        0 15px 40px rgba(0, 116, 200, 0.25),
+        0 5px 15px rgba(0,0,0,0.1),
+        inset 0 0 0 1px rgba(0, 116, 200, 0.2);
+    z-index: 10;
+    opacity: 1 !important;
+}
+
+/* Imagens laterais */
+#clients-carousel-images img.side {
+    opacity: 0.5;
+    transform: scale(0.85);
+}
+
+/* Imagens escondidas */
+#clients-carousel-images img.hidden {
+    opacity: 0.2;
+    transform: scale(0.7);
+}
+
+/* Botões de navegação */
+#clients-carousel-prev,
+#clients-carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 32px;
+    color: #0074c8;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#clients-carousel-prev:hover,
+#clients-carousel-next:hover {
+    background: #0074c8;
+    color: white;
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 10px 30px rgba(0, 116, 200, 0.4);
+}
+
+#clients-carousel-prev:active,
+#clients-carousel-next:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+#clients-carousel-prev {
+    left: 30px;
+}
+
+#clients-carousel-next {
+    right: 30px;
+}
+
+/* Gradientes mais suaves */
+#clients-carousel::before,
+#clients-carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 5;
+    pointer-events: none;
 }
 
 /* Responsivo para telas médias */
