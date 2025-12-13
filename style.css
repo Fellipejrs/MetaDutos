@@ -724,6 +724,10 @@ nav {
 }
 
 @media (max-width: 830px) {
+    #carousel-indicators{
+        bottom: 0 !important;
+    }
+
     .container-mapa-brasil{
         flex-direction: column;
     }
