@@ -724,6 +724,18 @@ nav {
 }
 
 @media (max-width: 830px) {
+    .quote-hero-banner{
+        min-height: 5.7rem !important;
+    }
+
+    .quote-hero-overlay{
+        margin-top: 0 !important;
+    }
+
+    #carousel-images img{
+        padding-top: 0 !important;
+    }
+
     #carousel-indicators{
         bottom: 0 !important;
     }
@@ -746,6 +758,7 @@ nav {
 
     nav {
         padding: 0.5rem 0;
+        position: relative !important;
     }
 
     .nav-container {
@@ -2038,9 +2051,7 @@ footer img {
 /* Responsividade da Seção de Cotação */
 @media (max-width: 768px) {
     .quote-hero-banner {
-        height: 50vh;
-        min-height: 300px;
-        margin-top: 4rem;
+        height: 5rem;
     }
     
     .quote-hero-title {
@@ -2103,10 +2114,10 @@ footer img {
 }
 
 @media (max-width: 480px) {
-    .quote-hero-banner {
+    /* .quote-hero-banner {
         height: 40vh;
         min-height: 250px;
-    }
+    } */
     
     .quote-hero-title {
         font-size: 2rem;
